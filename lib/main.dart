@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:healthcare_mania/screens/detail_screen.dart';
-import 'package:healthcare_mania/screens/list_screen.dart';
 import 'package:healthcare_mania/screens/login_screen.dart';
+
+import 'screens/list_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
+      home: LoginScreen(),
       restorationScopeId: LoginScreen.id,
       routes: {
         DetailScreen.id: (context) => DetailScreen(),
