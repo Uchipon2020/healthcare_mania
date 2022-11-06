@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 class DetailScreen extends StatefulWidget {
  static const String id = 'detail_screen';
+
+  const DetailScreen({Key key}) : super(key: key);
  @override
  DetailScreenState createState() => DetailScreenState();
 }

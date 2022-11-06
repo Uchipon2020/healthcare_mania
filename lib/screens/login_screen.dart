@@ -6,6 +6,8 @@ import 'package:healthcare_mania/screens/list_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id ='login_screen';
+
+  const LoginScreen({Key key}) : super(key: key);
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -77,7 +79,11 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_formKey.currentState?.validate() != true) {
       return;
     }
-    Navigator.pushNamed(context, ListScreen.id);
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => ListScreen(),
+      ),
+    );
   }
 /*
   Future<void> _onLogin() async {

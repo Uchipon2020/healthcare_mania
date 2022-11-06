@@ -15,15 +15,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Healthcare Mania',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.orange,
       ),
       home: LoginScreen(),
-      restorationScopeId: LoginScreen.id,
+      /*restorationScopeId: LoginScreen.id,
       routes: {
         DetailScreen.id: (context) => DetailScreen(),
         ListScreen.id: (context) => ListScreen(),
         LoginScreen.id: (context) => LoginScreen(),
-      },
+        DetailScreen.id:(context) => DetailScreen(),
+      },*/
     );
   }
 }

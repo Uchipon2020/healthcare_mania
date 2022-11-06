@@ -4,7 +4,7 @@ import 'package:sqflite/sqflite.dart' as sql;
 class DatabaseHelper {
   //static　＝　createTables ?
   static Future<void> createTables(sql.Database database) async {
-    await database.execute("""CREATE TABLE items(
+    await database.execute("""CREATE TABLE models(
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
         title TEXT,
         description TEXT,
@@ -18,7 +18,7 @@ class DatabaseHelper {
 
   static Future<sql.Database> db() async {
     return sql.openDatabase(
-      'nabindhakal.db',
+      'models_database.db',
       version: 1,
       onCreate: (sql.Database database, int version) async {
         await createTables(database);
@@ -31,7 +31,7 @@ class DatabaseHelper {
     final db = await DatabaseHelper.db();
 
     final data = {'title': title, 'description': descrption};
-    final id = await db.insert('items', data,
+    final id = await db.insert('models', data,
         conflictAlgorithm: sql.ConflictAlgorithm.replace);
     return id;
   }
@@ -39,14 +39,14 @@ class DatabaseHelper {
   // Read all items
   static Future<List<Map<String, dynamic>>> getItems() async {
     final db = await DatabaseHelper.db();
-    return db.query('items', orderBy: "id");
+    return db.query('models', orderBy: "id");
   }
 
   // Get a single item by id
   //We dont use this method, it is for you if you want it.
   static Future<List<Map<String, dynamic>>> getItem(int id) async {
     final db = await DatabaseHelper.db();
-    return db.query('items', where: "id = ?", whereArgs: [id], limit: 1);
+    return db.query('models', where: "id = ?", whereArgs: [id], limit: 1);
   }
 
   // Update an item by id
@@ -68,7 +68,7 @@ class DatabaseHelper {
   static Future<void> deleteItem(int id) async {
     final db = await DatabaseHelper.db();
     try {
-      await db.delete("items", where: "id = ?", whereArgs: [id]);
+      await db.delete("models", where: "id = ?", whereArgs: [id]);
     } catch (err) {
       debugPrint("Something went wrong when deleting an item: $err");
     }
