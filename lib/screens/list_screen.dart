@@ -8,10 +8,10 @@ class ListScreen extends StatefulWidget {
 
   const ListScreen({Key key}) : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<ListScreen> {
+class HomePageState extends State<ListScreen> {
 
   // All data
   List<Map<String, dynamic>> myData = [];
@@ -55,7 +55,7 @@ class _HomePageState extends State<ListScreen> {
               onTap: (){
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (builder) => EditScreen(index: index),
+                    builder: (builder) => const EditScreen(),
                   ),
                 );
               },
@@ -86,14 +86,14 @@ class _HomePageState extends State<ListScreen> {
         child: const Icon(Icons.add),
         onPressed: () => Navigator.of(context).push(
             MaterialPageRoute(
-                builder:(context)=> const EditScreen(),
+                builder:(context)=>  const EditScreen(),
             ),
         ),
       ),
     );
   }
-  void deleteItem(int id) async {
-    await DatabaseHelper.deleteItem(id);
+  void deleteItem(int id)  {
+    DatabaseHelper.deleteItem(id);
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('削除しました'), backgroundColor: Colors.green));
     _refreshData();

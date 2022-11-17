@@ -17,14 +17,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: LoginScreen(),
-      /*restorationScopeId: LoginScreen.id,
+      home: const LoginScreen(),
+      restorationScopeId: LoginScreen.id,
       routes: {
-        DetailScreen.id: (context) => DetailScreen(),
-        ListScreen.id: (context) => ListScreen(),
-        LoginScreen.id: (context) => LoginScreen(),
-        DetailScreen.id:(context) => DetailScreen(),
-      },*/
+        DetailScreen.id: (BuildContext context) => const DetailScreen(),
+        ListScreen.id: (BuildContext context) => const ListScreen(),
+        LoginScreen.id: (BuildContext context) => const LoginScreen(),
+        DetailScreen.id:(BuildContext context) => const DetailScreen(),
+      },
     );
   }
 }
