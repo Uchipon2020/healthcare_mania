@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthcare_mania/screens/detail_screen.dart';
 import 'package:healthcare_mania/screens/login_screen.dart';
 
-import 'screens/list_screen.dart';
+import 'screens/create_screen';
 
 void main() {
   runApp(MyApp());

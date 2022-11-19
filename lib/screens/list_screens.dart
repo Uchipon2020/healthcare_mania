@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:healthcare_mania/database_helper/database_helper.dart';
+import 'package:healthcare_mania/screens/detail_screen.dart';
 
 
-class EditScreen extends StatefulWidget {
-  const EditScreen({Key key}) : super(key: key);
+class ListScreen extends StatefulWidget {
+  const ListScreen({Key key}) : super(key: key);
+  static const id = 'list_Screen';
 
   @override
-  EditScreenState createState() => EditScreenState();
+  ListScreenState createState() => ListScreenState();
 }
 
-class EditScreenState extends State<EditScreen> {
+class ListScreenState extends State<ListScreen> {
   // All data
   List<Map<String, dynamic>> myData = [];
 
@@ -136,9 +138,12 @@ class EditScreenState extends State<EditScreen> {
           : myData.isEmpty?const Center(child:  Text("No Data Available!!!")):  ListView.builder(
         itemCount: myData.length,
         itemBuilder: (context, index) => Card(
-          color:index%2==0?Colors.green: Colors.green[200],
+          color:index%2==0?Colors.orange: Colors.orange[200],
           margin: const EdgeInsets.all(15),
           child:ListTile(
+            onTap:(){
+              Navigator.pushNamed(context, DetailScreen.id);
+            },
               title: Text(myData[index]['title']),
               subtitle: Text(myData[index]['description']),
               trailing: SizedBox(

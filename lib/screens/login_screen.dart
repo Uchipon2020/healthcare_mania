@@ -1,8 +1,7 @@
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:healthcare_mania/screens/list_screen.dart';
 
+import 'package:flutter/material.dart';
+import 'package:healthcare_mania/screens/list_screens.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id ='login_screen';
@@ -81,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (context) => ListScreen(),
+        builder: (context) => const ListScreen(),
       ),
     );
   }
